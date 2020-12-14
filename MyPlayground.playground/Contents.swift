@@ -1,120 +1,115 @@
 import UIKit
 
-//Arrays
+let firstScore = 10
+let SecondScore = 4
 
-let enggar = "EnggarAjip"
-let dito = "DitoShabri"
-let tika = "Fatika"
+let total = firstScore + SecondScore
+let diffrence = firstScore - SecondScore
 
-let Squad = [enggar,dito,tika]
+let product = firstScore * SecondScore
+let devided = firstScore / SecondScore
 
-Squad [1]
-
-//Set
-
-let colors = Set(["red", "green", "blue"])
-
-let colors2 = Set(["red", "green", "blue", "red", "blue"])
-
-//Tuple
-
-var name = (first: "Firli", last: "Shabri")
-
-name.0
-
-name.last
+let remainder = 13 % SecondScore
 
 
-//Array vs set vs tupel
+//Operator Over Loading
+
+let meaningofLife = 42
+let doubleMeaning = 42 + 42
+
+let fakers = "Fakers gonna"
+let acction = fakers +  "fake"
+
+let firstHalf  = ["John", "Paul"]
+let secondHalf = ["George", "Ringgo"]
+let betles = firstHalf + secondHalf
+
+//Compound Assignment operators
+
+var score = 95
+score -= 5
+
+var quoete = "The rain in Spain falls mainly on the "
+quoete +=  "Spaniards"
 
 
-//If you need a specific, fixed collection of related values where each item has a precise position or name, you should use a
-//tuple:
+//Comparison Operator
 
-let address = (house: 555, street: "Taylor Swift Avenue", city: "Nashville")
+let ThefirstScore  = 6
+let ThesecondScore = 4
 
-//If you need a collection of values that must be unique or you need to be able to check whether a specific item is in there extremely quickly, you should use a set:
+ThefirstScore == ThesecondScore
+ThefirstScore != ThesecondScore
 
-let set = Set(["aardvark", "astronaut", "azalea"])
+ThefirstScore < ThesecondScore
+ThefirstScore >= ThesecondScore
 
-//If you need a collection of values that can contain duplicates, or the order of your items matters, you should use an array:
+"Dito" <= "Shabri"
 
-let pythons = ["Eric", "Graham", "John", "Michael", "Terry", "Terry"]
+//Conditions
 
-//Dictionaries
+print("--------------------------------")
 
-let heights = [
-    "Flip Raihart": 1.78,
-    "Batman": 1.73
-]
+let usaha = 10
+let cinta = 11
 
-heights["Batman"]
-
-//Dictionary default values
-
-let favoriteIceCream = [
-    "Vania": "Chocolate",
-    "Firli": "Vanilla"
-]
-favoriteIceCream["Firli"]
-favoriteIceCream["Charlotte"]
-
-favoriteIceCream["Tono", default: "Unknown"]
-
-//Creating empty collections
-
-var teams = [String: String]()
-
-teams["Paul"] = "Red"
-
-var results9 = [Int]()
-
-var words = Set<String>(
-)
-var numbers = Set<Int>()
-
-var scores = Dictionary<String, Int>()
-
-var result10 = Array<Int>()
-
-//Enumerations
-
-let result0 = "failure"
-
-let result2 = "failed"
-let result3 = "fail"
-
-enum Result {
-    case success
-    case failure
+if usaha + cinta == 2 {
+    print("Salah satu orang saja yang berjuang")
+} else if usaha + cinta == 21 {
+    print("Dua daua nya berjuang")
+} else {
+    print("Coba Bicarakan dengan pasanganmu :)")
 }
 
-enum Result10 {
-    case success
-    case failure
+
+// Combining Condiditions
+
+let dito = 12
+let vania = 21
+
+if dito > 18 || vania > 18 {
+    print("salah satu nilai nya di atas 18")
 }
 
-let result4 = Result10.failure
+//The Ternary Operator
 
-// Enum associated values
+let firstCard  = 11
+let secondCard = 10
 
+print(firstCard == secondCard ? "Card Are The Same" : "Card Are Diffrent")
 
-enum Activity {
-    case bored
-    case running(destination: String)
-    case talking(topic: String)
-    case singing(volume: Int)
+if firstCard == secondCard {
+    print("Card the same")
+} else {
+    print("Card are Diffrent")
 }
 
-let talking = Activity.talking(topic: "football")
+//Swift Statment
 
-//let talking = Activity.talking(topic: "football")
+let weather = "sunny"
 
-
-enum Planet: Int {
-    case mercury = 1
-    case venus
-    case earth
-    case mars
+switch weather {
+case "rain":
+ print("Bring an umbrella")
+case "snow" :
+print("wrap up warm")
+case "sunny":
+print("Wear sunscreen")
+ fallthrough
+default:
+    print("enjoy your day!")
 }
 
+
+//Range Operators
+
+let nilai = 85
+
+switch nilai {
+case 0..<50:
+    print("You Failed badley!")
+case 50...85:
+    print("You did ok")
+default:
+    print("You did great!")
+}
