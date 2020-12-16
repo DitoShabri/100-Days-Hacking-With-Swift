@@ -1,141 +1,127 @@
 import UIKit
 
-let count = 1...10
+//Writing Function
 
-for number in count {
-    print("Number is \(number)")
-}
+/*func printHelp () {
+    let message = """
+     Welcome to MyApp!
 
-let albums = ["Red", "1989", "Reputation"]
-
-for album in albums {
-    print("\(album) is on Apple Music")
-}
-
-print("Players gonna ")
-
-for _ in 1...5 {
-    print("play")
-}
-
-let names = ["Nisrina", "Maulida", "Dildut" ,"Ray", "Pam"]
-
-for name in names {
-    print("\(name) Who is agent")
-}
-
-let namees = ["Sterling", "Dito", "Enggar", "Pam"]
-
-for _ in namees {
-    print("[CONSORED] is a agent!")
-}
-
-
-print("=-----------------------===---")
-
-//While
-//
-//var number = 1
-//
-//while number <= 20 {
-//    print(number)
-//    number += 1
-//}
-//
-//print("Ready Or not , here I come")
-
-
-
-
-//Repeat Loops
-
-
-/*var angka = 1
-
-repeat {
-    print(angka)
-    angka += 1
-} while angka <= 20
-
-repeat {
-    print("This is false")
-} while false
-
-print("Ready or not here I come")*/
-
-
-
-//Exiting Loops
-
-var countDown = 10
-
-while countDown >= 0 {
-    print(countDown)
-    countDown -= 1
-}
-
-print("Blast Off!!")
-
-while countDown >= 0 {
-    print(countDown)
-
-    if countDown == 4 {
-        print("I'm bored. Let's go now!")
-        break
-    }
-
-    countDown -= 1
-}
-
-//Exiting multiple Loops
-
-
-for i in 1...10 {
-    for j in 1...10 {
-        let product = i * j
-        print ("\(i) * \(j) is \(product)")
-    }
-}
-
-outerLoop: for i in 1...10 {
-    for j in 1...10 {
-        let product = i * j
-        print ("\(i) * \(j) is \(product)")
-    }
-}
-
-outerLoop: for i in 1...10 {
-    for j in 1...10 {
-        let product = i * j
-        print ("\(i) * \(j) is \(product)")
-
-        if product == 50 {
-            print("It's a bullseye!")
-            break outerLoop
-        }
-    }
-}
-
-//Skiping Items
-
-for k in 1...10{
-    if k % 2 == 1 {
-        continue
-    }
+    App ini dijalankan dengan menggunakan sebuah Func
+    """
     
-    print(k)
+    print(message)
 }
 
-//Infinity Loops
+printHelp() */
 
-var counter = 0
+//Accepting Parameters
 
-while true {
-    print("")
-    counter += 1
-    
-    if counter == 273 {
-        break
+func square (number : Int) {
+    print(number * number)
+}
+
+square(number: 8)
+
+//Returning Value
+
+func kotak (number : Int) -> Int {
+    return number * number
+}
+
+let result = kotak(number: 5)
+print(result)
+
+//Parameters Labels
+
+func sayHello (to name: String) {
+    print("Hello, \(name)!")
+}
+
+sayHello(to: "Vania")
+
+print("-----------------------------------------------------------")
+
+//Omoting Parameters Labels
+
+/*func greet (_ person: String) {
+    print("Hello, \(person)!")
+}
+
+greet("Dito")*/
+
+//Default Parameters
+
+func greet (_ person: String, nicely: Bool = true) {
+    if nicely == true {
+        print("Hello ,\(person)!")
+    } else {
+        print("oh no, it's \(person) again... ")
     }
 }
 
+
+greet("Vania")
+greet("Vania", nicely: false)
+
+print("-----------------------------------------------------------")
+print("-----------------------------------------------------------")
+//Variadic functions
+
+print("Hatters", "gonna" , "hate")
+
+func square (numbers: Int...) {
+    for numbers in numbers {
+        print("\(numbers) squared is \(numbers * numbers)")
+    }
+}
+
+square(numbers: 1,2,3,4,5 )
+
+print("-----------------------------------------------------------")
+print("-----------------------------------------------------------")
+
+
+enum PaswordError: Error {
+    case obvious
+}
+
+func checkPasword (_ password: String ) throws -> Bool {
+    if password == "password" {
+        throw PaswordError.obvious
+    }
+    return true
+}
+
+//Running Throwing Functions
+
+do {
+    try checkPasword("password")
+    print("That Password is good!")
+} catch {
+    print("You That can't use password")
+}
+
+//inout parameters
+
+func doubleInPlace (number: inout Int) {
+    number *= 2
+}
+
+var myNum = 10
+doubleInPlace(number: &myNum)
+
+
+/*
+ 
+ Functions summary :
+ 
+    1.  Fungsi memungkinkan kita menggunakan kembali kode tanpa mengulang sendiri.
+    2.  Fungsi dapat menerima parameter - cukup beri tahu Swift jenis setiap parameter.
+    3.  Fungsi dapat mengembalikan nilai, dan sekali lagi Anda tinggal menentukan jenis apa yang akan dikirim kembali. Gunakan tupel jika Anda ingin mengembalikan beberapa hal.
+    4.  Anda dapat menggunakan nama yang berbeda untuk parameter secara eksternal dan internal, atau menghilangkan nama eksternal seluruhnya.
+    5.  Parameter dapat memiliki nilai default, yang membantu Anda menulis lebih sedikit kode saat nilai tertentu umum.
+    6.  Fungsi variadic menerima nol atau lebih dari parameter tertentu, dan Swift mengonversi masukan menjadi larik.
+    7.  Fungsi dapat memunculkan kesalahan, tetapi Anda harus memanggilnya menggunakan trydan menangani kesalahan menggunakan catch.
+    8.  Anda dapat menggunakan inoutuntuk mengubah variabel di dalam suatu fungsi, tetapi biasanya lebih baik mengembalikan nilai baru.
+
+ */
